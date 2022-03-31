@@ -1,0 +1,626 @@
+브라우저는 html을 열고 html은 css와 자바스크립트를 가져옴
+index.html을 브라우저에 여는것
+이 html파일이 
+js : alert 경고창 
+
+2.1 basic data types
+문자는 "" 여기 안에 넣어야 함
+"" + "" 이런식으로 문자열을 합할 수 있음
+이건 string임 처음부터 끝까지 문자로 이루어진것을 뜻함
+ 
+ 계산기 만들기
+
+ 2.2 variables
+ console.log()-> 콘솔에게 메시지를 보내는 것
+ "" , '' 로 문자열 
+ const 상수
+ const a = 5;
+ 상수인 변수
+ const b = 2;
+ const myName = "nico";
+ camle_case -> myName
+ console.log("hello" + myName);
+
+ 2.3 const and let
+ 변수 만드는 법 두 가지 const let
+
+ const는 상수 값이 바뀔 수 없음
+ let은 바뀔 수 있음
+ const a = 5 면 a의 값을 바꿀 생각이 없는 것
+
+ 2.4 Booleans
+ true or false
+
+ const amIFat = true or false;
+ const a = null 값이 없음을 뜻함
+ let something;
+ ->undefined라고 나옴
+ 데이터 타입처럼 되어 있음
+ null true false도 데이터 타입
+ 컴퓨ㅓ 메모리 안에는 존재하나 정의되지 않은것
+ null은 변수안에 아무것도 없음을 의도적으로 할때
+
+ 2.5 arrays
+ 효율적인 데이터 저장방법 자료구조
+
+ const dayOfWeek = [mon,tue, ... ];
+ const nonsense = [1,2,"dfs",...,false,true,null];
+js 도 0부터 시작함
+
+daysOfWeek.push("sun");
+
+2.6 Objects
+object 만들기
+데이터를 최선으로 관리하자
+
+const palyer = {
+    //d여기에 특성(property)작성
+    name : "nico",
+    points: 10,
+    fat:true,
+};
+
+console.log(player);
+console.log(palyer["name"])
+console.log(player.name);
+console은 object log 는 특성
+데이터를 정리하는 좋은 방법임
+
+const 라도 안에 있는 것을 업데이트 가능
+player = true 이건 안됨
+player.lastName = "fdasfd";
+특성들은 어디서든 추가가능
+
+2.7 function part One
+ 
+function 만들기
+
+function sayHello(){
+    console.log("hello");
+}
+
+argument 사용
+
+2.8 function part Two
+
+function sayHello(nameOfPerson,age){
+    console.log("hello my name is " + nameOfPerson);
+}
+
+const player = {
+    name: "nico",
+    sayHello: function(otherPersonName){
+        console.log("hello!" + otherPersonName);
+    },
+};
+
+이런식으로 object 안에 function정의법
+
+2.9 recap
+string "" , '' 
+variable
+const let
+true false null undefined
+var 사용하지 말기
+Boolean true false
+null 비어있음 
+undefined 변수에 값을 부여하지 않은 상태
+conat days = [];
+안에 모든 타입이 모두 들어갈 수 있음
+변수도 들어갈 수 있음
+안에 있는 원소 변경 가능
+
+2.10 recap2
+const palyer = {
+    name: "Nico",
+    age: 98,
+};
+
+player.name
+console.log
+console은 object
+
+function sayHello(){
+
+}
+
+const palyer = {
+    sayHello : function(){
+
+    }
+}
+
+2.13 conditionals
+if 
+const age = prompt("How old are you?");
+console.log(age);
+prompt는 창을 띄움
+
+type 을 다른 type으로 바꾸는 방법
+parseInt("15");
+
+2.14 conditionals part Two
+isNaN() -> NaN이면 true
+
+3.0
+js가 어떻게 브라우저를 움직이는지
+js는 html과 상호작용하기 위함임
+핵심 object document
+브라우저에 대해 알아보자
+
+html의 element를 js를 통해 접근
+document
+브라우저에 이미 존재하는 것
+html을 가리키는 객체임
+document가 html을 보여줌
+js를 통해 html의 title을 가져올수있음
+document.title -> "Momentum"
+브라우저가 html 정보를 가지는 document를 전달
+document.title = "Hi"
+이렇ㄴ식으로 js로 html을 읽어오고 변경가능
+브라우저가 document객체를 주기 때문에 js와html을 연결하는 작업을 하지 않아도 됨
+js가 이미 html과 연결되어 있다.
+document가 모든 시작점
+
+3.1
+
+<h1 id="kss">Grab me!</h1>
+const title = document.getElementById("title");
+이런 식으로 element의 title을 넣어주면 그 element에 접근가능한 title
+id 를 통해 element를 찾는 것
+어떤 element도 접근 가능
+변수 생성
+유저명을 입력받고 title에 입력
+
+3.2
+
+id를 추가하지 않는 경우
+className을 사용하는 경우
+
+getElementBy~들이 많음
+getElementByClassName
+element를 한번에 가져와야 하는 경우 사용됨
+
+const title = document.getElementByTagName("h1");
+
+querySelector 많이 사용됨
+element를 css 방식으로 접근 가능
+<div class = "hello">
+    <h1>Grab me!</h1>
+</div>
+hello 란 class내부에 있는 h1을 가지고 올 수 있음
+document.querySelector(".hello h1");
+하나만 찾아준다. 첫번째 것을 찾아줌
+세 개 모두 가져오려면 querySelectorAll해주어야 함
+querySelector는 css selector 를 통해 가져다 줌
+이강의는 이 querySelector를 많이 사용함
+
+const title = document.querySelector("#hello");
+querySelector는 우리가 뭘 검색하는 지 명확하지 않으므로
+id는 #으로 명시해야 함
+
+3.3
+ 지금 js파일이 있기 때문에 js를 통해 html의 내용을 가져올 수 있는 거임
+- document가 html이 js파일을 load하기 때문에 존재 → 그 다음에 browser가 우리가 document에 접근할 수 있게 해줌
+- element의 내부를 보고 싶으면 console.dir()
+기본적으로 object로 표시한 element를 보여줌(전부 js object임)
+그 element 중 앞에 on이 붙은 것들은 event임
+- event: 어떤 행위를 하는 것
+모든 event는 js가 listen할 수 있음
+- eventListener : event를 listen함 → js에게 무슨 event를 listen하고 싶은 지 알려줘야 함
+- title.addEventListener("click") : 누군가가 title을 click하는 것을 listen할 거임 → 무언가를 해줘야함
+
+const title = document.querySelector("div.hello:first-child h1");
+
+function handleTitleClick(){
+title.style.color = "blue";
+}
+title.addEventListener("click",handleTitleClick);
+//click하면 handleTitleClick이라는 function이 동작하길 원함
+//그래서 handle~ 함수에 () 를 안넣은 것임
+//즉, js가 대신 실행시켜주길 바라는 것임!
+
+- function이 js에게 넘겨주고 유저가 title을 click할 경우에 js가 실행버튼을 대신 눌러주길 바라는 것임( 직접 handleTitleClick(); 이렇게 하는 것이 아니라)
+- 함수에서 () 이 두 괄호를 추가함으로써 실행버튼을 누를 수 있는 거임
+
+event를 js에서 listen할 수 있음 click event에 대해 알아보자
+title.eventListener("click") 이건 이벤트를 리슨하는 것임 
+js에세 무슨 이벤트를 리슨하고 싶은지 알려주어야 함
+title을 click하는 것을 리슨함
+handleTitleClick 함수를 정의
+title.addEventListener("click",handleTitleClick)
+title을 클릭하면 handleTitleClick 함수 실행하는 것
+js 가 이 함수를  실행해줌 click누를 때 마다 ()는 넣어주지 않음
+
+3.4
+console.dir을 통해 해당 element의 property를
+확인할 수 있고 여기에 event가 존재 on 붙어 있는 것들이 event임
+
+3.5
+event 활용방법 2가지
+title.addEventListener("click",handleTitleClick);
+or
+property 활용
+title.onclick = handleTitleClick; 이렇게도 가능함
+
+addEventListener 를 선호하는 이유는 removeEventListener사용이 가능하기 때문임
+window도 기본적으로 제공
+window 화면크기가 바뀔 때
+function handleWindowResize(){
+    document.body.style.backgroundColor = "tomato";
+}
+body에서는 h1처럼 document.title를 할 수 없음
+window.addEventListener("resize",handleWindowResize);
+document.body head title은 바로 가져올 수 있으나
+document.div이런건 querySelector같은 걸로 찾아와야 함 나머지 element들은 이런식으로 찾아야함
+
+3.6
+const h1 = document.querySelector(".hello:first-child h1");
+//const title = document.getElementById("title");
+
+function handleTitleClick(){
+    const currentColor = h1.style.color;
+    let newColor;
+
+    if(currentColor === "blue"){
+        newColor = "tomato";
+    }else{
+        newColor = "blue";
+    }
+    h1.style.color = newColor;
+}
+
+h1.addEventListener("click",handleTitleClick);
+하지만 css는 css파일에서 고쳐줘야 맞음
+
+3.7
+style이 js에서 고쳐지고 있음 적합하지 않음
+
+html은 css 문서와 js  문서를 import함
+
+h1 {
+    color : cornflowerblue;
+}
+
+.active {
+    color:tomato;
+}
+
+h1에 이 active 클래스를 전달해보자
+
+function handleTitleClick(){
+    h1.className = "active";
+}
+
+function handleTitleClick(){
+    h1.className = "active";
+}
+
+이렇게 해서 h1의 className이 원래 hello에서 active로 변하면서
+색깔이 변하게 됨 
+이런 식의 코드가 더 좋음
+
+h1 {
+    color : cornflowerblue;
+    transition: color .5s ease-in-out;
+}
+
+function handleTitleClick(){
+    if(h1.className === "active"){
+        h1.className = "";
+    }else{
+        h1.className = "active";
+    }
+}
+
+이 "active"는 에러의 위험이 있음
+이렇게 말고 clickedClass 라는 변수를 이용하자
+이제 element의 className을 추가 변경 삭제 할 수 있는 것임
+
+3.8
+classList 우리가 class들의 목록으로 작업할수 있게끔 허용해준다.
+className은 이전calss를 상관하지않고 모든걸 교체해 버린다.
+
+classList를 이용하는건
+js에서 건드리는건 HTML element가 가지고있는 또하나의 요소 사용하는 것이다.
+= element의 class내용물을 조작하는 것을 허용한다는 뜻
+
+contains은 우리가 명시한 class가 HTML element의 class에 포함되어 있는지 말해준다
+
+toggle은 토큰이 존재하면 토큰제거
+토큰존재 하지않으면 토큰 추가
+
+ex)
+toggle은 h1의 classList에 clicked class가 이미있는지 확인하여
+만약있다면 toggle 이 clicked를 제거해준다
+만약 class name이 존재하지 않는다면 toggle은 classname 추가
+
+classList.contains(className);
+classList가 className을 포함하는지 확인하는 함수
+h1의 classList 안에 추가 삭제 가능
+
+function handleTitleClick(){
+    const clickedClass = "clicked";
+    if(h1.classList.contains(clickedClass)){
+        h1.classList.remove(clickedClass);
+    }else{
+        h1.classList.add(clickedClass);
+    }
+}
+
+이런식으로 코드 작성함
+
+위 코드를 toggle을 통해 한번에 작성가능
+toggle은 classList 에 해당 문자열 className이 있는지 확인해서
+있으면 제거 없으면 추가
+
+4.0
+<input type="text" palceholder = "what is your name?"/>
+input를 만듦
+
+<button>Log In</button>
+
+수많은 input이 있을 것 to-do , log 등등
+그래서 이 input의 이름을 잘 지어주어야 함
+div 안에 넣자
+id나 class 사용 className사용할 것
+<div id = "login-form">
+      <input type="text" palceholder = "what is your name?"/>
+      <button>Log In</button>
+    </div>
+
+//이제 input과 button을 가져와야 함 
+//두가지 방식 존재
+//1
+const loingForm = document.getElementById("login-form");
+const loginInput = loingForm.querySelector("input");
+const loginButton = loingForm.querySelector("button");
+//2
+const loginInput = document.querySelector("#login-form input");
+const loginButton = document.querySelector("#login-form button");
+
+loginInput의 property인 value에 값이 들어가게 되는것이다
+
+function onLoginBtnClick(){
+    console.log(loginInput.value);
+}
+
+loginButton.addEventListener("click",onLoginBtnClick);
+이렇게 접근가능
+
+4.1
+username의 유효성 확인
+username 너무 길어도 없어도 안되게 함
+
+function onLoginBtnClick(){
+    const username = loginInput.value;
+
+    if(username ===""){
+        alert("Please write your name");
+    }else if(username.length > 15){
+        alert("Your name is too long");
+    }
+    //console.log(loginInput.value);
+}
+
+loginButton.addEventListener("click",onLoginBtnClick);
+
+이런식으로 가능
+근데 js로 브라우저의 기능을 사용할 수 있으므로 이 방법보다는
+항상 원래 있는 것을 이용해서 하는 것이 좋음 이렇게 직접 만드는 것보다
+<input required maxlength="15" type="text" palceholder = "what is your name?"/>
+이런것을 활용하는 게 가장 좋다
+그런데 이런 input의 유효성 검사를 작동시키려면 form안에 있어야 됨 input가
+
+<form id = "login-form">
+      <input required maxlength="15" type="text" palceholder = "what is your name?"/>
+      <button>Log In</button>
+    </form>
+
+이제 값을 입력하지 않거나 최대 문자열을 넣으려고 하면 브라우저가 막음
+
+이제 button을 누르면 웹 페이지가 재시작되는 것을 확인할 수 있음
+form이 submit하기 때문임 그러므로 button을 클릭하는 것을 신경쓰지 않아도 됨
+
+4.2
+submit라는 event가 발생하는 것을 인지하고 막는 방법
+const loginForm = document.querySelector("#login-form");
+
+form의 submit는 새로고침 하게 되어 있음 브라우저에 그렇게 프로그래밍 되어 있는 것
+사실 브라우저는 submit가 발생하여 
+loginForm.addEventListener("submit",onLoginSubmit);
+이 onLoginSubmit함수를 실행할 때 이 함수의 첫번째 매개변수에 (명시하지 않아도 됨)
+정보를 넘겨줌 이 정보를 우리는 활용해야 함
+
+function onLoginSubmit(tomato){
+    tomato.preventDefault();
+    console.log(tomato);
+}
+
+결과
+SubmitEvent {isTrusted: true, submitter: input, type: 'submit', target: form#login-form, currentTarget: form#login-form, …}
+isTrusted: true
+bubbles: true
+cancelBubble: false
+cancelable: true
+composed: false
+currentTarget: null
+defaultPrevented: true
+eventPhase: 0
+path: (5) [form#login-form, body, html, document, Window]
+returnValue: false
+srcElement: form#login-form
+submitter: input
+target: form#login-form
+timeStamp: 1226.800000011921
+type: "submit"
+[[Prototype]]: SubmitEvent
+
+모든 eventListener function 의 첫번째 매개변수는 
+항상 지금 막 벌어진 상황에 대한 정보를
+방금 일어난 event에 대한 정보를 지닌 argument가 된다.
+tomato.preventDefault();
+이건 어떤 event든지 기본 행동을 하지 않게 하는것임
+이런 식으로 js를 통해 기본 동작 행동을 막을 수 있음
+
+4.3
+form의 기본 동작은 submit
+링크의 기본 동작은 다른 사이트로의 이동 이걸 한번 막아보자
+
+const link = document.querySelector("a");
+
+function handleLinkClick(){
+    alert("clicked!!"); //alert는 모든 동작을 막을 수 있음
+}
+
+link.addEventListener("click",handleLinkClick);
+
+handleLinkClick(object) js가 방금 일어난 event에 대한 정보를 담은 object를 첫번쨰 인자로 전달해보자
+
+PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …}
+isTrusted: true
+altKey: false
+altitudeAngle: 1.5707963267948966
+azimuthAngle: 0
+bubbles: true
+button: 0
+buttons: 0
+cancelBubble: false
+cancelable: true
+clientX: 75
+clientY: 44
+composed: true
+ctrlKey: false
+currentTarget: null
+defaultPrevented: true
+detail: 1
+eventPhase: 0
+fromElement: null
+height: 1
+isPrimary: false
+layerX: 75
+layerY: 44
+metaKey: false
+movementX: 0
+movementY: 0
+offsetX: 67
+offsetY: 13
+pageX: 75
+pageY: 44
+path: (5) [a, body, html, document, Window]
+pointerId: 1
+pointerType: "mouse"
+pressure: 0
+relatedTarget: null
+returnValue: false
+screenX: 76
+screenY: 156
+shiftKey: false
+sourceCapabilities: InputDeviceCapabilities {firesTouchEvents: false}
+srcElement: a
+tangentialPressure: 0
+target: a
+tiltX: 0
+tiltY: 0
+timeStamp: 653.2000000178814
+toElement: null
+twist: 0
+type: "click"
+view: Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+which: 1
+width: 1
+x: 75
+y: 44
+[[Prototype]]: PointerEvent
+
+클릭 위치도 알려줌 이렇게 이벤트로부터 많은 정보를 얻을 수 있음
+
+정리 
+브라우저가 안에 있는 함수와 정보를 같이 실행
+
+4.4
+
+.hidden{
+    display: none;
+}
+css에 이 classname을 추가함
+이 클래스를 추가하는 element는 보이지 않게 됨
+
+function onLoginSubmit(event){
+    event.preventDefault();
+    loginForm.classList.add("hidden");
+    const username = loginInput.value;
+    console.log(loginInput.value);
+}
+<h1 id="greeting" class = "hidden"></h1>
+이걸 html에 추가해줌
+const greeting = document.querySelector("#greeting");
+과
+function onLoginSubmit(event){
+    event.preventDefault();
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    const username = loginInput.value;
+    greeting.innerText = "Hello " + username;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+    console.log(loginInput.value);
+}
+
+이렇게 js에 추가해줌
+
+username를 넣어주게 되면 이렇게 greering id를 가진 h1의 text에 이렇게 추가됨
+그리고 이제 그 element의 hidden class 를 삭제해주면 html에 h1이 나옴
+
+<h1 id="greeting" class="hidden">Hello fsadfas</h1>
+
+
+const HIDDEN_CLASSNAME = "hidden";
+
+"Hello " + username;
+이런 형식이 보기 좋지 않음
+
+reeting.innerText = `Hello ${username}`;
+이런식으로 변수는 ${variable} 이런식으로 해줄 수 있음
+`` 백틱 tab키 위에 있는 것임
+
+4.5
+이제 이 value를 저장해야 한다 유저의 이름을
+API가 있음 브라우저에 저장할 수 있음
+ local storage
+개발자 모드 application에 있음
+
+function onLoginSubmit(event){
+    event.preventDefault();
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    const username = loginInput.value;
+    localStorage.setItem("username",username);
+    greeting.innerText = `Hello ${username}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+    console.log(loginInput.value);
+}
+
+이렇게 해서 localStorage 에 키 값과 value값을 넣어주면 된다.
+
+4.6
+이제 localStorage에 값이 존재하면 h1을 없다면 form을 띄우게 할것
+function onLoginSubmit(event){
+    event.preventDefault();
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    const username = loginInput.value;
+    localStorage.setItem(USERNAME_KEY,username);
+    paintGreetings(username);
+}
+
+function paintGreetings(username){
+    greeting.innerText = `Hello ${username}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+const savedUsername = localStorage.getItem(USERNAME_KEY);
+
+if(savedUsername === null){
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener("submit",onLoginSubmit);
+}else {
+    paintGreetings(savedUsername);
+}
+
+4.7
