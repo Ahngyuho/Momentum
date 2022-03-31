@@ -624,3 +624,51 @@ if(savedUsername === null){
 }
 
 4.7
+
+5.0
+interval 매번 일어나야 하는 무언가
+
+function sayHello(){
+    console.log("hello");
+}
+js는 이런 interval 함수를 가지고 있음
+setInterval(function,호출 간격 5000ms -> 5s)
+
+5.1
+setTimeout
+이건 딱 한번만 실행
+
+Date object 사용해서 시간이랑 분을 표시해보자
+new Date()
+
+function getClock(){
+    const date = new Date();
+    console.log(`${date.getHours()} : {date.getHours()} : {date.getHours()} : {date.getHours()}`)
+}
+setInterval(getClock,1000);
+매 초마다 new object를 만듦
+
+5.2
+padStart string에 쓸 수 있는 string임
+"1".padStart(2,"0")
+앞에 문자열이 길이가 2 가 아니라면 0을 추가해서 01로 만들어라
+padding추가
+"12".padStrar(2,"0");
+이러면 아무 작동도 하지 않음
+padEnd(2,"0")
+이건 끝에 10됨
+new Date.getHorus()는 숫자를 반환함\
+String(new Date.getHours())이렇게 스트링으로 변경 가능
+
+const clock = document.querySelector("h2#clock");
+
+function getClock(){
+    const date = new Date();
+    const hours  = String(date.getHours()).padStart(2,"0");
+    const minutes= String(date.getMinutes()).padStart(2,"0");
+    const seconds= String(date.getSeconds()).padStart(2,"0");
+    clock.innerText = `${hours} : ${minutes} : ${seconds}`;
+}
+
+getClock();
+setInterval(getClock,1000);
