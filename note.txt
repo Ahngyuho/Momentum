@@ -870,3 +870,91 @@ function deleteToDo(event){
 }
 
 지우는건 이런식으로 지울 수 있음
+
+6.3
+이제 실제로 이 todo들을 저장해보자
+localStorage에 저장하자
+그리고 todo들을 불러오는방식으로 코드
+새로고침해도 그것들을 불러와서 화면에 띄워주기
+저장하는 것부터 해보자
+
+array에 push 하는것
+newTodo를 그리기전에 일단 array에 newTodo를 저장하고 그리기
+
+toDos.push(newTodo);
+paintToDo(newTodo);
+localStorage에는 텍스트만 저장 가능 array 는 저장불가
+
+function saveToDos(){
+    localStorage.setItem("todos",toDos);
+}
+
+하지만 이렇게 하면 텍스트 형식으로 저장됨 array로 저장해보자
+하지만 실제로는 불가능 array처럼 보이게 할 수 있을 뿐
+브라우저의 기능을 이용해줘야한다.
+JSON.stringify()
+js object array 어떤 js코드건간에 string으로 만들어줌
+
+function saveToDos(){
+    localStorage.setItem("todos",JSON.stringify(toDos));
+}
+
+이렇게하면 array모양의 string으로 저장됨
+
+6.4
+이제 toDos들을 화면에 띄워볼것임
+JSON.stringify(string)
+-> string
+JSON.parse(string) -> array js가 이해가능한 array로 변환가능해짐
+
+JSON.parse(localStorage.getItem("todos"))
+->  ['fsdafasd', 'fdasfasd', 'dsfafd']
+
+const savedToDos = localStorage.getItem(TODOS_KEY);
+//이제 이 가져온 string들을 array로 만들것임 
+//값이 없을 경우가 있으므로
+//savedToDos !== null
+if(savedToDos){
+    const parsedToDos = JSON.parse(saveToDos);
+    console.log(parsedToDos);
+}
+
+이렇게 js array 로 바꾸ㅝ줌
+이제 각각의 요소에 접근 가능
+
+js는 각각의 item에 함수를 적용가능하게 할 수 있음
+
+if(savedToDos){
+    const parsedToDos = JSON.parse(savedToDos);
+    parsedToDos.forEach(sayHello);
+}
+
+3 todo.js:48 Hello
+
+js는 지금 처리되고 있는 item을 그냥 제공해줌
+
+if(savedToDos){
+    const parsedToDos = JSON.parse(savedToDos);
+    parsedToDos.forEach((item)=>console.log("this is the turn of" + item));
+}
+
+a
+todo.js:14 b
+todo.js:14 c
+todo.js:14 d
+todo.js:14 e
+todo.js:14 f
+todo.js:14 g
+
+7.5
+if(savedToDos){
+    const parsedToDos = JSON.parse(savedToDos);
+    parsedToDos.forEach(paintToDo);
+}
+이런식으로 할 수 있음 추가되는 item을 paintToDo를 실행해 
+이 item이 newTodo로 들어가 html에 추가됨
+
+새로고침하면 const toDos = [] 되어있으므로 할상 array가 초기화됨
+
+let toDos = JSON.parse(localStorage.getItem(TODOS_KEY));
+이건 내가 만든거
